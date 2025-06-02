@@ -7,6 +7,7 @@ Y = dataset.iloc[:,-1].values
 
 from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
+#Tried regularization no changes in accuracy, precision and recall
 
 from sklearn.preprocessing import StandardScaler 
 scaler = StandardScaler()
@@ -18,10 +19,16 @@ X_train,X_test,Y_train,Y_test = train_test_split(X_scaled,Y, test_size=0.1,rando
 
 model.fit(X_train,Y_train)
 predictions = model.predict(X_test) 
-print("Predictions:", predictions)
+#print("Predictions:", predictions)
 
 scores = model.score(X_test,Y_test)
 print("Accuracy of model:", scores)
+
+from sklearn.metrics import precision_score,recall_score
+precision = precision_score(Y_test,predictions)
+recall = recall_score(Y_test,predictions)
+print('Precision:', precision)
+print('Recall:', recall)
 
 print("Enter the details asked below to check your heart's state!")
 age = int(input("Enter your age(in years):"))

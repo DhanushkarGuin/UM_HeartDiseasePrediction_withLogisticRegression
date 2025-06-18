@@ -31,4 +31,4 @@ print('Recall:', recall)
 import pickle
 pickle.dump(pipeline, open('pipeline.pkl', 'wb'))
 
-print(dataset.columns.tolist())
+# print(dataset.columns.tolist())
